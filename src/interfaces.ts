@@ -10,5 +10,5 @@ export interface ISummaryResponse {
     readonly HomeQuarantine: string | number;
     readonly CentralQuarantine: string | number;
     readonly DetailedMap: string;
-  };
-}
+  },
+};
