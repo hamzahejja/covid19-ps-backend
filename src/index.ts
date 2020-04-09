@@ -45,7 +45,6 @@ cron.schedule(constants.CRON_JOB_NOTATION_EVERY_30_MIN, async () => {
   const incomingSummaryHttpResponse = await getSummaryHttpResponse();
   if (isValidJSONResponse(incomingSummaryHttpResponse)) {
     const incomingSummaryJSON = incomingSummaryHttpResponse.data as ISummaryResponse;
-    console.log(validateObjectAgainstSchema(incomingSummaryJSON, 'ISummaryResponse'));
     console.log("Summary as JSON:", incomingSummaryJSON);
     console.log("Previous LastUpdated: ", ((summaryJSON.data)||{}).LastUpdated || undefined);
     console.log("Current LastUpdated: ", incomingSummaryJSON.data.LastUpdated);

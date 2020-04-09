@@ -76,7 +76,7 @@ export const httpGet = (
 export const validateObjectAgainstSchema = (obj, interfaceRef) => {
   const validator = new AJV({allErrors: true});
   const schema = generateSchemaFromInterface(interfaceRef);
-  console.log(schema);
+
   if (! validator.validate(schema, obj)) {
     console.error(validator.errorsText());
     return false;
