@@ -2,7 +2,7 @@ const cron = require("node-cron");
 const express = require("express");
 const axios = require('axios').default;
 const constants = require('./constants');
-// method to call corona.ps APIs 
+// method to call corona.ps APIs
 const retrieveData = async () => {
   return axios.get(constants.SUMMARY_API_URL);
 }
