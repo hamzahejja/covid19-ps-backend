@@ -7,11 +7,10 @@ import {
   isEmpty,
   httpGet,
   isValidJSONResponse,
-  validateObjectAgainstSchema,
 } from './utils';
 
 // method to call corona.ps APIs
-const getSummaryHttpResponse = async (): Promise<axios.AxiosResponse<ISummaryResponse>> => {
+async function getSummaryHttpResponse(): Promise<axios.AxiosResponse<ISummaryResponse>> {
   return httpGet(constants.SUMMARY_API_URL);
 };
 
@@ -22,10 +21,10 @@ const getSummaryHttpResponse = async (): Promise<axios.AxiosResponse<ISummaryRes
  * @param {object} currentSummaryJSON
  * @return {boolean}
  */
-const shouldPerformUpdate = (
+function shouldPerformUpdate(
   prevSummaryJSON: ISummaryResponse,
   currentSummaryJSON: ISummaryResponse
-) => {
+): boolean {
   /** Should Update at first Data Read from API */
   if (isEmpty(prevSummaryJSON)) {
     return true;

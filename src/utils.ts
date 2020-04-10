@@ -10,7 +10,7 @@ import { SRC_BASE_PATH, TYPES_FILE_PATH } from './constants';
  * @param {string} interfaceRef
  * @return {object}
  */
-const generateSchemaFromInterface = (interfaceRef: string) => {
+function generateSchemaFromInterface (interfaceRef: string): TJS.Definition {
   const compilerOptions: TJS.CompilerOptions = { //TS Compiler Settings
     strictNullChecks: true
   };
@@ -27,16 +27,16 @@ const generateSchemaFromInterface = (interfaceRef: string) => {
 }
 
 /**
- * Check if Resposne has status: 200 (OK) and
- * has JSON response (i.e. application/json)
+ * Check if Http Response has status: 200 (OK) and
+ * has JSON content (i.e. application/json)
  *
  * @param {axios.AxiosResponse} response
  * @return {boolean}
  */
-export const isValidJSONResponse = (response: axios.AxiosResponse) => {
+export function isValidJSONResponse (response: axios.AxiosResponse): boolean {
   return response &&
     response.status === 200 &&
-    response.headers["content-type"].includes("application/json");
+    response.headers['content-type'].includes('application/json');
 };
 
 /**
@@ -45,9 +45,8 @@ export const isValidJSONResponse = (response: axios.AxiosResponse) => {
  * @param {object} obj
  * @return {boolean}
  */
-export const isEmpty = (obj: object) => {
-  return !Object.keys(obj).length &&
-    JSON.stringify(obj) === JSON.stringify({});
+export function isEmpty (obj: object): boolean {
+  return JSON.stringify(obj) === JSON.stringify({});
 };
 
 /**
@@ -57,10 +56,10 @@ export const isEmpty = (obj: object) => {
  * @param {axios.AxiosRequestConfig|{}} config
  * @return {Promise<axios.AxiosResponse>}
  */
-export const httpGet = (
+export function httpGet (
   url: string,
   config: axios.AxiosRequestConfig = {}
-): Promise<axios.AxiosResponse> => {
+): Promise<axios.AxiosResponse> {
   return axios.default.get(url, config);
 };
 
@@ -73,11 +72,11 @@ export const httpGet = (
  * @param {object} schema
  * @return {boolean}
  */
-export const validateObjectAgainstSchema = (obj, interfaceRef) => {
+export function validateObjectAgainstSchema (obj: object, interfaceRef: string): boolean {
   const validator = new AJV({allErrors: true});
   const schema = generateSchemaFromInterface(interfaceRef);
 
-  if (! validator.validate(schema, obj)) {
+  if (!validator.validate(schema, obj)) {
     console.error(validator.errorsText());
     return false;
   }
