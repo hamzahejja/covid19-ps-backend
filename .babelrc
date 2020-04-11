@@ -1,0 +1,14 @@
+{
+    "presets": [
+        "@babel/env",
+        "@babel/typescript"
+    ],
+    "plugins": [
+        "@babel/plugin-transform-for-of",
+        "@babel/plugin-transform-regenerator",
+        "@babel/plugin-transform-runtime",
+        "@babel/plugin-proposal-numeric-separator",
+        "@babel/proposal-class-properties",
+        "@babel/proposal-object-rest-spread"
+    ]
+}
