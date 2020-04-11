@@ -40,16 +40,6 @@ export function isValidJSONResponse (response: axios.AxiosResponse): boolean {
 };
 
 /**
- * Check if object is empty JSON.
- *
- * @param {object} obj
- * @return {boolean}
- */
-export function isEmpty (obj: object): boolean {
-  return JSON.stringify(obj) === JSON.stringify({});
-};
-
-/**
  * Perform HTTP Get
  *
  * @param {string} url

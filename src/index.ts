@@ -3,11 +3,7 @@ import cron from 'node-cron';
 import express from 'express';
 import * as constants from './constants';
 import { ISummaryResponse } from './interfaces';
-import {
-  isEmpty,
-  httpGet,
-  isValidJSONResponse,
-} from './utils';
+import { httpGet, isValidJSONResponse } from './utils';
 
 // method to call corona.ps APIs
 async function getSummaryHttpResponse(): Promise<axios.AxiosResponse<ISummaryResponse>> {
@@ -25,12 +21,7 @@ function shouldPerformUpdate(
   prevSummaryJSON: ISummaryResponse,
   currentSummaryJSON: ISummaryResponse
 ): boolean {
-  /** Should Update at first Data Read from API */
-  if (isEmpty(prevSummaryJSON)) {
-    return true;
-  }
-
-  const prevLastUpdatedAt = Date.parse(prevSummaryJSON.data.LastUpdated);
+  const prevLastUpdatedAt = prevSummaryJSON.data ? Date.parse(prevSummaryJSON.data.LastUpdated) : -1;
   const currentLastUpdatedAt = Date.parse(currentSummaryJSON.data.LastUpdated);
 
   return Math.abs(prevLastUpdatedAt - currentLastUpdatedAt) !== 0;
