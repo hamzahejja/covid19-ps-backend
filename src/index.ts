@@ -1,10 +1,9 @@
 import express from 'express';
 import cron from 'node-cron';
-import { getDetailsHttpResponse, getGovernoratesSummaryHttpResponse, getSummaryHttpResponse } from './APIs';
+import { getDetailsHttpResponse, getGovernoratesSummaryHttpResponse, getSummaryHttpResponse } from './apis';
 import * as constants from './constants';
 import { IDetailsResponse, IGovernoratesSummaryResponse, ISummaryResponse } from './interfaces';
 import { isValidJSONResponse } from './utils';
-
 /**
  * Check whether to Update Firebase Data or not.
  *

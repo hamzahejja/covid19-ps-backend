@@ -13,7 +13,7 @@ export interface ISummaryResponse {
   },
 };
 
-export interface ICase {
+interface ICase {
   case_number: string,
   case_age: string,
   case_gender: string,
@@ -30,7 +30,7 @@ export interface IDetailsResponse {
   },
 };
 
-export interface IGovernorate {
+interface IGovernorate {
   Name: string,
   Cases: string,
   CentralQuarantine: string,
