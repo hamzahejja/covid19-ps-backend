@@ -67,7 +67,7 @@ export function validateObjectAgainstSchema (obj: object, interfaceRef: string):
   const schema = generateSchemaFromInterface(interfaceRef);
 
   if (!validator.validate(schema, obj)) {
-    console.error(validator.errorsText());
+    console.error(`${interfaceRef}: ${validator.errorsText()}`);
     return false;
   }
 
