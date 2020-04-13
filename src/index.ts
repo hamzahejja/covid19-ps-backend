@@ -54,9 +54,9 @@ cron.schedule(constants.CRON_JOB_NOTATION_EVERY_30_MIN, async () => {
         console.log('Governorates summary as JSON: ', governoratesSummaryJSON);
         await writeGovernoratesStatsDocuments(governoratesSummaryJSON);
       }
+    } else {
+      console.log('No Changes! Data is UP-TO-DATE, Skipping FIREBASE upload ...');
     }
-
-    console.log('No Changes! Data is UP-TO-DATE, Skipping FIREBASE upload ...');
   }
 });
 
