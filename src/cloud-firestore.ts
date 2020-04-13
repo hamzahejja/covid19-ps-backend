@@ -1,5 +1,5 @@
 import { firebase } from './firebase';
-import { generateUniqueCaseID, getLocalDateFormat } from './utils';
+import { getLocalDateFormat } from './utils';
 
 import {
   ICase,
@@ -58,10 +58,10 @@ export async function writeCasesDocuments(casesDetailsResponse: IDetailsResponse
 
   const writePromises: Promise<void>[] = casesDetailsResponse.data
     .cases
-    .map((value: ICase) => {
+    .map((caseObj: ICase) => {
       return collectionRef
-      .doc(generateUniqueCaseID(value))
-      .set(value);
+      .doc(caseObj.case_number)
+      .set(caseObj);
     });
 
     return Promise.all(writePromises);

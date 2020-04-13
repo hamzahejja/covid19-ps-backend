@@ -3,7 +3,6 @@ import * as axios from 'axios';
 import * as TJS from 'typescript-json-schema';
 import * as path from 'path';
 import { SRC_BASE_PATH, TYPES_FILE_PATH } from './constants';
-import { ICase } from './interfaces';
 
 /**
  * Generate/Compile Schema from TS Interface/Type
@@ -73,24 +72,6 @@ export function validateObjectAgainstSchema (obj: object, interfaceRef: string):
   }
 
   return true;
-}
-
-/**
- * Generate Unique Case Key/ID
- * Format: `City-Letter:No.|Age|Gender`
- *
- * @param {ICase} caseObj
- * @return {string}
- */
-export function generateUniqueCaseID (caseObj: ICase): string {
-  const {
-    case_number: number,
-    case_age: age,
-    case_gender: gender,
-    case_location: location
-  } = caseObj;
-
-  return `${location[0].toUpperCase()}:${number}|${age}|${gender}`
 }
 
 /**
