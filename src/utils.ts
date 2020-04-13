@@ -73,3 +73,25 @@ export function validateObjectAgainstSchema (obj: object, interfaceRef: string):
 
   return true;
 }
+
+/**
+ * Format JavaScript Date as dd-mm-yyyy
+ * and Return it as string
+ *
+ * @param {string} dateTimeString
+ * @return {string}
+ */
+export function getLocalDateFormat(dateTimeString: string): string {
+  const dateTimeFormat: Intl.DateTimeFormat = new Intl.DateTimeFormat(
+    'en',
+    { day: '2-digit', month: '2-digit', year: 'numeric'}
+  );
+
+  const [
+    {value: month},,
+    {value: day},,
+    {value: year}
+  ] = dateTimeFormat.formatToParts(new Date(dateTimeString));
+
+  return `${day}-${month}-${year}`;
+}

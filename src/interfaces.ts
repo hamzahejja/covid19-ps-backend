@@ -1,19 +1,19 @@
 export interface ISummaryResponse {
   data: {
-    readonly LastUpdated: string;
-    readonly TotalCases: number;
-    readonly TotalRecovery: number;
-    readonly TotalActiveCases: number;
-    readonly TotalDeath: number;
-    readonly TotalCriticalCases: number;
-    readonly TotalTestedSamples: number;
-    readonly HomeQuarantine: string | number;
-    readonly CentralQuarantine: string | number;
-    readonly DetailedMap: string;
+    LastUpdated: string;
+    TotalCases: number;
+    TotalRecovery: number;
+    TotalActiveCases: number;
+    TotalDeath: number;
+    TotalCriticalCases: number;
+    TotalTestedSamples: number;
+    HomeQuarantine: string | number;
+    CentralQuarantine: string | number;
+    DetailedMap: string;
   },
 };
 
-interface ICase {
+export interface ICase {
   case_number: string,
   case_age: string,
   case_gender: string,
@@ -21,7 +21,8 @@ interface ICase {
   case_diagnose_date: string,
   case_source_of_infection: string,
   case_condition: string,
-  case_quarantine: string
+  case_quarantine: string,
+  case_community: string,
 };
 
 export interface IDetailsResponse {
@@ -30,7 +31,7 @@ export interface IDetailsResponse {
   },
 };
 
-interface IGovernorate {
+export interface IGovernorate {
   Name: string,
   Cases: string,
   CentralQuarantine: string,
@@ -44,4 +45,3 @@ export interface IGovernoratesSummaryResponse {
     Governorates: IGovernorate[]
   },
 };
-
