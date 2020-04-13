@@ -36,7 +36,7 @@ export interface IGovernorate {
   Cases: string,
   CentralQuarantine: string,
   HomeQuarantine: string,
-  Recovered: number,
+  Recovered: number|boolean,
   Deaths: number
 };
 

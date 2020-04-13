@@ -19,7 +19,7 @@ export async function getDetailsHttpResponse(): Promise<axios.AxiosResponse<IDet
   const response = await httpGet(DETAILS_API_URL);
 
   return isValidJSONResponse(response) &&
-    validateObjectAgainstSchema((response.data as IDetailsResponse).data, schemaRef) ?
+    validateObjectAgainstSchema(response.data as IDetailsResponse, schemaRef) ?
       response : null;
 };
 
