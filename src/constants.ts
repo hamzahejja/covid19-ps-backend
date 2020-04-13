@@ -2,7 +2,7 @@ const SRC_BASE_PATH = './src';
 const TYPES_FILE_PATH = 'interfaces.ts';
 const SUMMARY_API_URL = 'https://corona.ps/API/summary';
 const DETAILS_API_URL = 'https://corona.ps/API/cases';
-const CRON_JOB_NOTATION_EVERY_30_MIN = '*/1 * * * *';
+const CRON_JOB_NOTATION_EVERY_30_MIN = '*/30 * * * *';
 const GOVERNORATE_SUMMARY_URL = 'https://corona.ps/API/governorates';
 
 /** Firebase Firestore Collections */

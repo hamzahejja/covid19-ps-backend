@@ -43,7 +43,7 @@ export async function writeGovernoratesStatsDocuments(
 }
 
 /**
- * Write/Upload Cases Deatils JSON
+ * Write/Upload Cases Details JSON
  * Objects retrieved from corona.ps API to
  * Firebase's Cloud Firestore Storage
  * Under `CASES` collection.

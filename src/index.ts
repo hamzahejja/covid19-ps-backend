@@ -39,7 +39,7 @@ cron.schedule(constants.CRON_JOB_NOTATION_EVERY_30_MIN, async () => {
       summaryJSON = JSON.parse(JSON.stringify(incomingSummaryJSON));
       await writeSummaryDocument(summaryJSON);
 
-      /** Cases Details API, Send JSON Resposne to Firebase Firestore on Update */
+      /** Cases Details API, Send JSON Response to Firebase Firestore on Update */
       const incomingDetailsHttpResponse = await getDetailsHttpResponse();
       if (incomingDetailsHttpResponse) {
         detailsJSON = JSON.parse(JSON.stringify(incomingDetailsHttpResponse.data as IDetailsResponse));
