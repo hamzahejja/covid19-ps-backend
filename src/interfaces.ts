@@ -21,7 +21,8 @@ export interface ICase {
   case_diagnose_date: string,
   case_source_of_infection: string,
   case_condition: string,
-  case_quarantine: string
+  case_quarantine: string,
+  case_community: string,
 };
 
 export interface IDetailsResponse {
